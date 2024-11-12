@@ -56,7 +56,10 @@ repositories {
 }
 
 android {
-    namespace "com.marianhello.bgloc"
+    def agpVersion = com.android.Version.ANDROID_GRADLE_PLUGIN_VERSION
+    if (agpVersion.tokenize('.')[0].toInteger() >= 7) {
+        namespace "com.marianhello.bgloc"
+    }
     compileSdkVersion project.ext.getCompileSdkVersion()
     buildToolsVersion project.ext.getBuildToolsVersion()
     if (hasApp) {
